@@ -167,6 +167,23 @@ main {
   }
 }
 
+/* Criar Conta */
+.create-account {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.create-account a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.create-account a:hover {
+    text-decoration: underline;
+}
+
+
 /* Responsividade */
 @media (max-width: 600px) {
     .login-form button {
