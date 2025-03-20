@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadingSpinner = document.getElementById('loading-spinner');
 
     const API_URL = 'https://reqres.in/api/register';
+    let cadastroTimeout;
 
     form.addEventListener('submit', async function(event) {
         event.preventDefault();
@@ -42,6 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (response.ok) {
                 showSuccessMessage(cadastroMessage, 'Cadastro realizado com sucesso!');
+                nomeInput.value = '';
+                emailInput.value = '';
+                passwordInput.value = '';
+                confirmPasswordInput.value = '';
                 setTimeout(() => {
                     window.location.href = '../login/index.html';
                 }, 2000);
@@ -115,11 +120,13 @@ document.addEventListener('DOMContentLoaded', function() {
         input.classList.add('invalid');
         errorElement.textContent = message;
         errorElement.style.display = 'block';
+        clearTimeout(cadastroTimeout);
     }
 
     function hideError(input,errorElement) {
         input.classList.remove('invalid');
         errorElement.style.display = 'none';
+        clearTimeout(cadastroTimeout);
     }
 
     function showSuccessMessage(element, message) {
@@ -127,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
         element.classList.remove('error');
         element.classList.add('success');
         element.style.display = 'block';
+        clearTimeout(cadastroTimeout);
     }
 
     function showErrorMessage(element, message) {
@@ -134,5 +142,27 @@ document.addEventListener('DOMContentLoaded', function() {
         element.classList.remove('success');
         element.classList.add('error');
         element.style.display = 'block';
+
+        clearTimeout(cadastroTimeout);
+        cadastroTimeout = setTimeout(() => {
+            element.style.display = 'none';
+        }, 5000);
     }
+
+    nomeInput.addEventListener('focus', () => {
+        hideError(nomeInput, nomeError);
+        cadastroMessage.style.display = 'none';
+    });
+    emailInput.addEventListener('focus', () => {
+        hideError(emailInput, emailError);
+        cadastroMessage.style.display = 'none';
+    });
+    passwordInput.addEventListener('focus', () => {
+        hideError(passwordInput, passwordError);
+        cadastroMessage.style.display = 'none';
+    });
+    confirmPasswordInput.addEventListener('focus', () => {
+        hideError(confirmPasswordInput, confirmPasswordError);
+        cadastroMessage.style.display = 'none';
+    });
 });

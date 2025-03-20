@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadingSpinner = document.getElementById('loading-spinner');
 
     const API_URL = 'https://reqres.in/api/login';
+    let errorTimeout;
 
     form.addEventListener('submit', async function(event) {
         event.preventDefault();
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                  if (responseData.token) {
                     showSuccessMessage(loginMessage, 'Login realizado com sucesso!');
                         setTimeout(() => {
-                            window.location.href = 'dashboard.html';
+                            window.location.href = 'dashboard/index.html';
                         }, 2000);
                 } else {
                     showErrorMessage(loginMessage, 'Erro inesperado.  Token não recebido.');
@@ -99,11 +100,13 @@ document.addEventListener('DOMContentLoaded', function() {
         input.classList.add('invalid');
         errorElement.textContent = message;
         errorElement.style.display = 'block';
+        clearTimeout(errorTimeout);
     }
 
     function hideError(input, errorElement) {
         input.classList.remove('invalid');
         errorElement.style.display = 'none';
+        clearTimeout(errorTimeout);
     }
 
     function showSuccessMessage(element, message) {
@@ -111,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         element.classList.remove('error');
         element.classList.add('success');
         element.style.display = 'block';
+        clearTimeout(errorTimeout);
     }
 
     function showErrorMessage(element, message) {
@@ -118,5 +122,20 @@ document.addEventListener('DOMContentLoaded', function() {
         element.classList.remove('success');
         element.classList.add('error');
         element.style.display = 'block';
+        clearTimeout(errorTimeout);
+
+        errorTimeout = setTimeout(() => {
+            element.style.display = 'none';
+        }, 5000);
     }
+
+    emailInput.addEventListener('focus', () => {
+        hideError(emailInput, emailError);
+        loginMessage.style.display = 'none';
+    });
+
+    passwordInput.addEventListener('focus', () => {
+        hideError(passwordInput, passwordError);
+        loginMessage.style.display = 'none';
+    });
 });
