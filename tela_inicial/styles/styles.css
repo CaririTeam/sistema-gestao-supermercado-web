@@ -7,23 +7,41 @@ body{
     height: 100vh;    
     background-color: #252121;
 }
+
+
 nav{
     height: 15%;
 }
 
-ul{
+.ul-dropdown{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 1vw;
-    background-color: #10403b;
-    color: white; 
-    height: 40%;
+    font-size: 1.5vw;
+    background-color: #10403b;    
+    height: 60%;
+}
+
+.ul-breadcrumb{
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    border-bottom: 2px solid #10403b;
+    padding-bottom: 0.1%;
+    padding-left: 4%;
+    padding-top: 0.5%;
+}
+
+.a-breadcrumb{
+    display: flex;  
+    justify-content:flex-start;
+    
+    
 }
 
 li{    
     list-style-type: none;
-    text-align: center;    
+    /*text-align: center;    */
 }
 
 h1{
@@ -46,7 +64,7 @@ main{
     background-color: #2a2b2a;
     width: 95%;
     margin: auto;
-    height: 62%;
+    height: 58%;
     
 }
 
@@ -66,15 +84,17 @@ main div{
 }
 
 main div span{
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     text-align: center;
 }
 
 
 a{
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     align-items: center;
+    color: white;
+    text-decoration: none;
 }
 
 
@@ -88,14 +108,53 @@ a img{
 footer{ 
 
     display: flex;
-    justify-content: center; 
+    justify-content: space-around; 
+    padding-left: 4%;
     align-items: center; 
     background-color: #10403b;
-    height: 10%;  
+    height: 15%;  
 }
 
-footer img{
+.img-logo{
 
     height: 80%;
-    border-radius: 50px;
+    border-radius: 5px;
+}
+
+.img-redes-sociais{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 10px;
+    
+}
+
+.img-container-redes-sociais{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 60%;
+}
+
+footer ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5vh;
+    
+}
+
+footer li{
+    padding-bottom: 5px;
+}
+
+.titulo-lista-footer{
+    font-weight: bolder;
+    font-size: 2.5vh;
+    padding-bottom: 10px;
+    color: white;
 }
