@@ -206,10 +206,13 @@ footer ul{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
     text-decoration: none;
     font-size: 1.5vh;
     
+}
+
+footer a, li, div{
+    color: rgb(144, 148, 148);
 }
 
 footer li{
@@ -220,7 +223,7 @@ footer li{
     font-weight: bolder;
     font-size: 2.5vh;
     padding-bottom: 10px;
-    color: white;
+    
 }
 
 footer a:hover{
