@@ -31,7 +31,7 @@ nav{
 
 
 nav li{
-    display: flex;
+    display: block;
     align-items: center;
 }
 
@@ -141,6 +141,10 @@ main div:hover img{
     transform: scale(1.1);
 }
 
+main div:hover span{
+    transform: scale(1.1);
+}
+
 main div span{
     padding-bottom: 5px;
     text-align: center;
@@ -223,6 +227,6 @@ footer a:hover{
     font-weight: bolder;
 }
 
-footer img:hover{
+footer a img:hover{
    transform: scale(1.3);
 }
