@@ -12,7 +12,11 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+a{
+    text-decoration: none;
+}
 
+/* Estilização do menu dropdown */
 nav{
     display: flex;
     flex-direction: column;
@@ -29,25 +33,27 @@ nav{
     width: 100%;
 }
 
-
 nav li{
     display: block;
     align-items: center;
 }
 
 nav li a{
-    
+    display: flex;
     font-size: 1.5vw;
+    color: white;
+    align-items: center;
+    height: 100%;
+    
 }
 
 nav li div a{
     display: inline-block;
     padding: 15px;
-    font-size: 1vw;
+    font-size: 1.2vw;
     color:white;
+    
 }
-
-
 
 nav li a:hover{
     font-weight: bolder;
@@ -55,19 +61,26 @@ nav li a:hover{
 
 .dropdown-menu{
     position: absolute;
-    display: none;
+    opacity: 0;
+    visibility: hidden;    
 }
 
 .dropdown-menu a{
-    display: block;
+    display: block;    
+    background-color: rgb(64, 83, 67);      
 }
 
 .dropdown:hover .dropdown-menu{
-    display: block;
-    background-color: rgb(64, 83, 67);
-    border-radius: 10px;
+    opacity: 1;
+    visibility: visible; 
+    transition-delay: 0.2s;       
 }
 
+.dropdown-menu a:hover{
+    background-color: rgb(49, 64, 52); 
+}
+
+/*estilização do caminho de navegação - breadcrumb*/
 .ul-breadcrumb{
     display: flex;
     flex-direction: row;
@@ -88,9 +101,9 @@ nav li a:hover{
 
 li{    
     list-style-type: none;
-    
 }
 
+/*Titulo do página - Sistema de gerenciamento de estoque*/
 h1{
     display: flex;
     color: white;
@@ -102,7 +115,7 @@ h1{
     height: 8%;
 }
 
-
+/*Estilização dos botões principais no centro da tela*/
 main{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -113,10 +126,7 @@ main{
     width: 95%;
     margin: auto;
     height: 58%;
-   
-    
 }
-
 
 main div{
     display: flex;
@@ -150,27 +160,21 @@ main div span{
     text-align: center;
 }
 
-
-a{
-    display: flex;
+main a{                                   /*Estilização dos links da pagina*/
+    display: flex;                  
     justify-content: center;
     align-items: center;
     color: white;
-    text-decoration: none;
     height: 100%;
-    
 } 
 
-
-a img{  
-    
+main a img{                               /*Estilização das imagens dos botões da main*/
     width: 70%;
     height: 70%;
 }
 
-
+/*Estilização do rodapé da página*/
 footer{ 
-
     display: flex;
     justify-content: space-around; 
     padding-left: 4%;
@@ -180,7 +184,6 @@ footer{
 }
 
 .img-logo{
-
     height: 80%;
     border-radius: 5px;
 }
@@ -208,7 +211,11 @@ footer ul{
     align-items: center;
     text-decoration: none;
     font-size: 0.6vw;
-    
+}
+
+footer a img{                               /*Estilização das imagens do rodapé*/
+    width: 70%;
+    height: 70%;
 }
 
 footer a, li, div{
@@ -223,7 +230,6 @@ footer li{
     font-weight: bolder;
     font-size: 1vw;
     padding-bottom: 10px;
-    
 }
 
 footer a:hover{
