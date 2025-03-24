@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 emailInput.value = '';
                 passwordInput.value = '';
                 confirmPasswordInput.value = '';
+                localStorage.setItem('isAuthenticated', 'true');
                 setTimeout(() => {
                     window.location.href = '../login/index.html';
                 }, 2000);

@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (response.ok) {
                  if (responseData.token) {
                     showSuccessMessage(loginMessage, 'Login realizado com sucesso!');
+                    localStorage.setItem('isAuthenticated', 'true');
                         setTimeout(() => {
                             window.location.href = '../tela_inicial/tela-inicial.html';
                         }, 2000);
