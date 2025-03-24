@@ -13,6 +13,8 @@
         
         <ul  class="container-nav"> 
 
+            <li><a href="../sobre/index.html">Sobre</a></li>
+
             <li class="dropdown">
 
                 <a href="#">Produtos</a>   
@@ -95,7 +97,7 @@
 
             <li class="dropdown">
 
-                <a href="#">configurações</a>   
+                <a href="#">Configurações</a>   
 
                 <div class="dropdown-menu">
                     <a href="#">Novo usuário</a>
@@ -106,11 +108,19 @@
                 </div>
                 
             </li>
+            
+            <li id="user-item" style="display: none;">
+                <a href="#"><span class="user-icon">👤</span> Usuário</a>
+                <ul class="user-dropdown">
+                    <li><a href="#">Configurações</a></li>
+                    <li><a href="#" id="logout-link">Sair</a></li>
+                </ul>
+            </li>
         </ul>
 
         <ul class="ul-breadcrumb">
             <li >
-                <a class="a-breadcrumb" href="#">Início</a>
+                <a class="a-breadcrumb" href="#">Dashboard</a>
             </li>
             
     </nav>
@@ -177,6 +187,8 @@
         
         
     </main>
+
+    <script src="scripts/tela-inicial.js"></script>
 
     <footer>
             <img class="img-logo" src="./imagens/logo_empresa.svg" alt="Logo da empresa">
