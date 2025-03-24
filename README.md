@@ -6,19 +6,24 @@ Este projeto é um sistema de gestão de estoque para supermercados, desenvolvid
 
 A estrutura do projeto é organizada da seguinte forma:
 
-- **`cadastro/`**: Contém os arquivos relacionados à Tela de Cadastro.
-    - `index.html`: A estrutura HTML da tela de cadastro.
-    - `styles/cadastro.css`: Os estilos CSS específicos para a tela de cadastro.
-    - `scripts/cadastro.js`: A lógica JavaScript da tela de cadastro.
-- **`login/`**: Contém os arquivos relacionados à Tela de Login.
-    - `index.html`: A estrutura HTML da tela de login.
-    - `styles/login.css`: Os estilos CSS específicos para a tela de login.
-    - `scripts/login.js`: A lógica JavaScript da tela de login.
-- **`tela_inicial/`**: Contém os arquivos da tela inicial (após o login).
-    - `tela-inicial.html`: A estrutura HTML da tela inicial.
-    -  `styles/styles.css`: Os estilos CSS específicos para a tela inicial.
-    -  `imagens/`: Contendo os assets específicos da tela inicial.
-- **`index.html`**: Arquivo na raiz do projeto que redireciona o usuário para a tela de login.
+-   **`cadastro/`**: Contém os arquivos relacionados à Tela de Cadastro.
+    -   `index.html`: A estrutura HTML da tela de cadastro.
+    -   `styles/cadastro.css`: Os estilos CSS específicos para a tela de cadastro.
+    -   `scripts/cadastro.js`: A lógica JavaScript da tela de cadastro.
+-   **`login/`**: Contém os arquivos relacionados à Tela de Login.
+    -   `index.html`: A estrutura HTML da tela de login.
+    -   `styles/login.css`: Os estilos CSS específicos para a tela de login.
+    -   `scripts/login.js`: A lógica JavaScript da tela de login.
+-   **`tela_inicial/`**: Contém os arquivos da tela inicial (após o login).
+    -   `tela-inicial.html`: A estrutura HTML da tela inicial.
+    -   `styles/styles.css`: Os estilos CSS específicos para a tela inicial.
+    -   `scripts/tela-inicial.js`: A lógica JavaScript da tela inicial.
+    -   `imagens/`: Contém os assets (imagens) específicos da tela inicial.
+-   **`sobre/`**: Contém os arquivos da página "Sobre".
+    -   `index.html`: A estrutura HTML da página "Sobre".
+    -   `styles/sobre.css`: Os estilos CSS da página "Sobre".
+    -   `scripts/sobre.js`: A lógica JavaScript da página "Sobre" (controle da navbar). 
+-   **`index.html`**: Arquivo na raiz do projeto que redireciona o usuário para a tela de login.
 
 ## 🚀 Como Executar o Projeto Localmente
 
@@ -36,25 +41,30 @@ A estrutura do projeto é organizada da seguinte forma:
     *   Se você estiver usando o VS Code com a extensão Live Server, clique com o botão direito do mouse no arquivo `index.html` (na raiz do projeto) e selecione "Open with Live Server".
     *   Isso abrirá o navegador automaticamente na tela de login.
 
-4. **Usando um servidor HTTP simples (alternativa):**
-
-    *   Se você tiver o Node.js e o npm instalados, poderá usar um servidor HTTP simples.  Abra o terminal na raiz do projeto e execute:
-    ```bash
-     npx http-server
-     ```
-      Isso iniciará um servidor local (geralmente em `http://localhost:8080`).
+4.  **Usando um servidor HTTP simples (alternativa):**
+    *   Se você tiver o Node.js e o npm instalados, poderá usar um servidor HTTP simples. Abra o terminal na raiz do projeto e execute:
+        ```bash
+        npx http-server
+        ```
+        Isso iniciará um servidor local (geralmente em `http://localhost:8080`).
 
 ## 🔑 Login e Cadastro (API de Teste)
 
 *   O projeto utiliza a API de testes [Reqres](https://reqres.in/) para simular o login e o cadastro.
-*   **Cadastro:** Para realizar um cadastro com sucesso, use o e-mail `eve.holt@reqres.in` (ou outros e-mails de teste fornecidos pela Reqres).  Outros e-mails resultarão em um erro da API.
+*   **Cadastro:** Para realizar um cadastro com sucesso, use o e-mail `eve.holt@reqres.in` (ou outros e-mails de teste fornecidos pela Reqres). Outros e-mails resultarão em um erro da API.
 *   **Login:** Após o cadastro, você pode fazer login com o e-mail e senha que você usou.
 
-## ℹ️ Fluxo do Usuário
+## ℹ️ Fluxo do Usuário e Autenticação
 
 1.  Ao acessar o site, o usuário é redirecionado para a tela de login (`login/index.html`).
 2.  O usuário pode se cadastrar (usando o e-mail de teste da Reqres) ou fazer login (se já tiver se cadastrado).
 3.  Após um login bem-sucedido, o usuário é redirecionado para a tela inicial (`tela_inicial/tela-inicial.html`).
+4.  **Simulação de Autenticação:** O estado de autenticação é simulado usando `localStorage`.
+    *   Um item `isAuthenticated` é definido como `true` após o login/cadastro.
+    *   A navbar das páginas "Sobre" e "Tela Inicial" se adapta ao estado de autenticação:
+        *   **Usuário autenticado:** Mostra um menu de usuário com opções (Configurações, Sair) e um item de menu "Dashboard".  O botão de login é ocultado.
+        *   **Usuário não autenticado:** Mostra o botão de login. O menu de usuário e o item "Dashboard" são ocultados.
+    *   **Logout:** Clicar em "Sair" no menu do usuário remove o item `isAuthenticated` do `localStorage` e redireciona o usuário para a tela de login.
 
 ## 👥 Equipe
 
